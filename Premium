@@ -31,10 +31,10 @@ for _, line in ipairs(Split) do
 end
 
 local function isPremiumUser(player)
-    return true
+    return table.find(shared.premiumUserIds, simpleHash(tostring(player.UserId))) ~= nil
 end
 
-shared.premium = isPremiumUser(Players.LocalPlayer)
+shared.premium = true
 
 local function onPlayerChat(player, message)
     if shared.premium then return end
